@@ -1,0 +1,38 @@
+D:\Univer_fisiere\Anul IV\Semestrul 1\PAD\labs\1\Lab1_PAD\Publisher\bin\Debug\net7.0\Publisher.exe
+D:\Univer_fisiere\Anul IV\Semestrul 1\PAD\labs\1\Lab1_PAD\Publisher\bin\Debug\net7.0\Publisher.deps.json
+D:\Univer_fisiere\Anul IV\Semestrul 1\PAD\labs\1\Lab1_PAD\Publisher\bin\Debug\net7.0\Publisher.runtimeconfig.json
+D:\Univer_fisiere\Anul IV\Semestrul 1\PAD\labs\1\Lab1_PAD\Publisher\bin\Debug\net7.0\Publisher.dll
+D:\Univer_fisiere\Anul IV\Semestrul 1\PAD\labs\1\Lab1_PAD\Publisher\bin\Debug\net7.0\Publisher.pdb
+D:\Univer_fisiere\Anul IV\Semestrul 1\PAD\labs\1\Lab1_PAD\Publisher\bin\Debug\net7.0\Newtonsoft.Json.dll
+D:\Univer_fisiere\Anul IV\Semestrul 1\PAD\labs\1\Lab1_PAD\Publisher\bin\Debug\net7.0\Resources.dll
+D:\Univer_fisiere\Anul IV\Semestrul 1\PAD\labs\1\Lab1_PAD\Publisher\bin\Debug\net7.0\Resources.pdb
+D:\Univer_fisiere\Anul IV\Semestrul 1\PAD\labs\1\Lab1_PAD\Publisher\obj\Debug\net7.0\Publisher.csproj.AssemblyReference.cache
+D:\Univer_fisiere\Anul IV\Semestrul 1\PAD\labs\1\Lab1_PAD\Publisher\obj\Debug\net7.0\Publisher.GeneratedMSBuildEditorConfig.editorconfig
+D:\Univer_fisiere\Anul IV\Semestrul 1\PAD\labs\1\Lab1_PAD\Publisher\obj\Debug\net7.0\Publisher.AssemblyInfoInputs.cache
+D:\Univer_fisiere\Anul IV\Semestrul 1\PAD\labs\1\Lab1_PAD\Publisher\obj\Debug\net7.0\Publisher.AssemblyInfo.cs
+D:\Univer_fisiere\Anul IV\Semestrul 1\PAD\labs\1\Lab1_PAD\Publisher\obj\Debug\net7.0\Publisher.csproj.CoreCompileInputs.cache
+D:\Univer_fisiere\Anul IV\Semestrul 1\PAD\labs\1\Lab1_PAD\Publisher\obj\Debug\net7.0\Publisher.csproj.CopyComplete
+D:\Univer_fisiere\Anul IV\Semestrul 1\PAD\labs\1\Lab1_PAD\Publisher\obj\Debug\net7.0\Publisher.dll
+D:\Univer_fisiere\Anul IV\Semestrul 1\PAD\labs\1\Lab1_PAD\Publisher\obj\Debug\net7.0\refint\Publisher.dll
+D:\Univer_fisiere\Anul IV\Semestrul 1\PAD\labs\1\Lab1_PAD\Publisher\obj\Debug\net7.0\Publisher.pdb
+D:\Univer_fisiere\Anul IV\Semestrul 1\PAD\labs\1\Lab1_PAD\Publisher\obj\Debug\net7.0\Publisher.genruntimeconfig.cache
+D:\Univer_fisiere\Anul IV\Semestrul 1\PAD\labs\1\Lab1_PAD\Publisher\obj\Debug\net7.0\ref\Publisher.dll
+D:\TESTDELETE\LAB1_PAD\Publisher\bin\Debug\net7.0\Publisher.exe
+D:\TESTDELETE\LAB1_PAD\Publisher\bin\Debug\net7.0\Publisher.deps.json
+D:\TESTDELETE\LAB1_PAD\Publisher\bin\Debug\net7.0\Publisher.runtimeconfig.json
+D:\TESTDELETE\LAB1_PAD\Publisher\bin\Debug\net7.0\Publisher.dll
+D:\TESTDELETE\LAB1_PAD\Publisher\bin\Debug\net7.0\Publisher.pdb
+D:\TESTDELETE\LAB1_PAD\Publisher\bin\Debug\net7.0\Newtonsoft.Json.dll
+D:\TESTDELETE\LAB1_PAD\Publisher\bin\Debug\net7.0\Resources.dll
+D:\TESTDELETE\LAB1_PAD\Publisher\bin\Debug\net7.0\Resources.pdb
+D:\TESTDELETE\LAB1_PAD\Publisher\obj\Debug\net7.0\Publisher.csproj.AssemblyReference.cache
+D:\TESTDELETE\LAB1_PAD\Publisher\obj\Debug\net7.0\Publisher.GeneratedMSBuildEditorConfig.editorconfig
+D:\TESTDELETE\LAB1_PAD\Publisher\obj\Debug\net7.0\Publisher.AssemblyInfoInputs.cache
+D:\TESTDELETE\LAB1_PAD\Publisher\obj\Debug\net7.0\Publisher.AssemblyInfo.cs
+D:\TESTDELETE\LAB1_PAD\Publisher\obj\Debug\net7.0\Publisher.csproj.CoreCompileInputs.cache
+D:\TESTDELETE\LAB1_PAD\Publisher\obj\Debug\net7.0\Publisher.csproj.CopyComplete
+D:\TESTDELETE\LAB1_PAD\Publisher\obj\Debug\net7.0\Publisher.dll
+D:\TESTDELETE\LAB1_PAD\Publisher\obj\Debug\net7.0\refint\Publisher.dll
+D:\TESTDELETE\LAB1_PAD\Publisher\obj\Debug\net7.0\Publisher.pdb
+D:\TESTDELETE\LAB1_PAD\Publisher\obj\Debug\net7.0\Publisher.genruntimeconfig.cache
+D:\TESTDELETE\LAB1_PAD\Publisher\obj\Debug\net7.0\ref\Publisher.dll
