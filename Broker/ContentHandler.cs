@@ -13,7 +13,6 @@ namespace Broker
             if (contentString.StartsWith("subscribe#"))
             {
                 connectionInfo.Topic = contentString.Split("subscribe#").LastOrDefault();
-                // adaugam conexiunea in storage
                 ConnectionsStorage.Add(connectionInfo);
             }
             else
@@ -21,8 +20,7 @@ namespace Broker
                 XmlSerializer serializer = new XmlSerializer(typeof(Content));
 
                 using TextReader reader = new StringReader(contentString);
-                Content content = (Content)serializer.Deserialize(reader);
-                //Add to the storage
+                Content content = (Content)serializer.Deserialize(reader)
                 ContentStorage.AddContent(content);
             }
 

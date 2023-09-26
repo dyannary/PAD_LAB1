@@ -5,10 +5,6 @@ namespace Broker
 {
     static class ContentStorage
     {
-        // persistent - salvarea po disk si restaurearea brokerului (durable queues)
-        // transient - de durata scurta
-        // colectiile concurente sunt mai rapide decat mecanismul stanndard de blocare 
-
         private static ConcurrentQueue<Content> _contentQueue;
 
         static ContentStorage()
@@ -30,7 +26,6 @@ namespace Broker
             return content;
         }
 
-        //poate fi si ca proprietate
         public static bool IsEmpty()
         {
             return _contentQueue.IsEmpty;

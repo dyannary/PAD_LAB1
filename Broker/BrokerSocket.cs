@@ -39,8 +39,8 @@ namespace Broker
             {
                 while (true)
                 {
-                    var clientSocket = await _socket.AcceptAsync();
-                    _ = HandleClientAsync(clientSocket);
+                    var socket = await _socket.AcceptAsync();
+                    _ = HandleClientAsync(socket);
                 }
             }
             catch (Exception e)
@@ -49,14 +49,14 @@ namespace Broker
             }
         }
 
-        private async Task HandleClientAsync(Socket clientSocket)
+        private async Task HandleClientAsync(Socket socket)
         {
             ConnectionInfo connectionInfo = new ConnectionInfo();
 
             try
             {
-                connectionInfo.Socket = clientSocket;
-                connectionInfo.Address = clientSocket.RemoteEndPoint.ToString();
+                connectionInfo.Socket = socket;
+                connectionInfo.Address = socket.RemoteEndPoint.ToString();
 
                 while (true)
                 {
