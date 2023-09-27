@@ -2,7 +2,7 @@
 
 Console.WriteLine("Broker");
 
-BrokerSocket brokerSocket = new BrokerSocket("127.0.0.1", 9000);
+BrokerSocket brokerSocket = new BrokerSocket("192.168.1.128", 9000);
 
 brokerSocket.Start(10);
 

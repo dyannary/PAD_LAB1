@@ -20,7 +20,7 @@ namespace Broker
                 XmlSerializer serializer = new XmlSerializer(typeof(Content));
 
                 using TextReader reader = new StringReader(contentString);
-                Content content = (Content)serializer.Deserialize(reader)
+                Content content = (Content)serializer.Deserialize(reader);
                 ContentStorage.AddContent(content);
             }
 
