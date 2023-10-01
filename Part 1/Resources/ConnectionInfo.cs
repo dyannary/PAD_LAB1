@@ -12,7 +12,7 @@ namespace Resources
 
         public string Address { get; set; }
 
-        public string Topic { get; set; }
+        public string? Topic { get; set; }
 
         public ConnectionInfo()
         {

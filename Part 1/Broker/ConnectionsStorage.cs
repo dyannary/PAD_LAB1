@@ -4,37 +4,37 @@ namespace Broker
 {
     static class ConnectionsStorage
     {
-        private static List<ConnectionInfo> _connections;
-        private static object _locker;
+        private static readonly List<ConnectionInfo> Connections;
+        private static readonly object Locker;
 
         static ConnectionsStorage()
         {
-            _connections = new List<ConnectionInfo>();
-            _locker = new object();
+            Connections = new List<ConnectionInfo>();
+            Locker = new object();
         }
 
         public static void Add(ConnectionInfo connectionInfo)
         {
-            lock (_locker)
+            lock (Locker)
             {
-                _connections.Add(connectionInfo);
+                Connections.Add(connectionInfo);
             }
         }
 
         public static void Remove(string address)
         {
-            lock (_locker)
+            lock (Locker)
             {
-                _connections.RemoveAll(x => x.Address == address);
+                Connections.RemoveAll(x => x.Address == address);
             }
         }
 
         public static List<ConnectionInfo> GetConnectionInfos(string topic)
         {
             List<ConnectionInfo> selectedConnectionInfos;
-            lock (_locker)
+            lock (Locker)
             {
-                selectedConnectionInfos = _connections.Where(x => x.Topic == topic).ToList();
+                selectedConnectionInfos = Connections.Where(x => x.Topic == topic).ToList();
             }
 
             return selectedConnectionInfos;

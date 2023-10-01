@@ -5,30 +5,28 @@ namespace Broker
 {
     static class ContentStorage
     {
-        private static ConcurrentQueue<Content> _contentQueue;
+        private static readonly ConcurrentQueue<Content> ContentQueue;
 
         static ContentStorage()
         {
-            _contentQueue = new ConcurrentQueue<Content>();
+            ContentQueue = new ConcurrentQueue<Content>();
         }
 
         public static void AddContent(Content content)
         {
-            _contentQueue.Enqueue(content); 
+            ContentQueue.Enqueue(content); 
         }
 
-        public static Content GetNext()
+        public static Content? GetNext()
         {
-            Content content = null;
-
-            _contentQueue.TryDequeue(out content);
+            ContentQueue.TryDequeue(out var content);
 
             return content;
         }
 
         public static bool IsEmpty()
         {
-            return _contentQueue.IsEmpty;
+            return ContentQueue.IsEmpty;
         }
     }
 }

@@ -30,10 +30,12 @@ namespace Broker
             catch (Exception e)
             {
                 Console.WriteLine("Error binding and Listening" + e.Message);
+
             }
         }
 
         public async Task ClientAcceptAsync()
+
         {
             try
             {
@@ -60,15 +62,13 @@ namespace Broker
 
                 while (true)
                 {
-                    var buffSize = await connectionInfo.Socket.ReceiveAsync(
-                        new ArraySegment<byte>(connectionInfo.Data),
-                        SocketFlags.None);
+                    var buffSize = await connectionInfo.Socket.ReceiveAsync(connectionInfo.Data);
 
-                    if (buffSize <= 0) break;
+                    if (buffSize <= 0)
+                        break;
 
                     var content = new byte[buffSize];
                     Array.Copy(connectionInfo.Data, content, content.Length);
-
                     ContentHandler.Handle(content, connectionInfo);
                 }
             }
