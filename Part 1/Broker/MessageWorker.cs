@@ -11,20 +11,28 @@ namespace Broker
             {
                 while (!ContentStorage.IsEmpty())
                 {
-                    var content = ContentStorage.GetNext();
-                    if (content != null)
+                    try
                     {
-                        var connections = ConnectionsStorage.GetConnectionInfos(content.Topic);
-
-                        foreach (var connection in connections)
+                        var content = ContentStorage.GetNext();
+                        if (content != null)
                         {
-                            var serializer = new XmlSerializer(typeof(Content));
+                            var connections = ConnectionsStorage.GetConnectionInfos(content.Topic);
 
-                            using var memoryStream = new MemoryStream();
-                            serializer.Serialize(memoryStream, content);
-                            var data = memoryStream.ToArray();
-                            connection.Socket.Send(data);
+                            foreach (var connection in connections)
+                            {
+                                var serializer = new XmlSerializer(typeof(Content));
+
+                                using var memoryStream = new MemoryStream();
+                                serializer.Serialize(memoryStream, content);
+                                var data = memoryStream.ToArray();
+                                connection.Socket.Send(data);
+                            }
                         }
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Error in sending data: " + e);
+                        throw;
                     }
                 }
                 Thread.Sleep(500);

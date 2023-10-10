@@ -30,12 +30,10 @@ namespace Broker
             catch (Exception e)
             {
                 Console.WriteLine("Error binding and Listening" + e.Message);
-
             }
         }
 
         public async Task ClientAcceptAsync()
-
         {
             try
             {
@@ -53,7 +51,7 @@ namespace Broker
 
         private async Task HandleClientAsync(Socket socket)
         {
-            ConnectionInfo connectionInfo = new ConnectionInfo();
+            var connectionInfo = new ConnectionInfo();
 
             try
             {

@@ -1,40 +1,57 @@
-﻿using Resources;
+﻿using System.Net.Sockets;
+using Resources;
 
 namespace Broker
 {
     static class ConnectionsStorage
     {
-        private static readonly List<ConnectionInfo> Connections;
-        private static readonly object Locker;
+        public static List<string> Topics;
+        private static List<ConnectionInfo> _connections;
+        private static object _locker;
 
         static ConnectionsStorage()
         {
-            Connections = new List<ConnectionInfo>();
-            Locker = new object();
+            Topics = new List<string>();
+            _connections = new List<ConnectionInfo>();
+            _locker = new object();
         }
 
         public static void Add(ConnectionInfo connectionInfo)
         {
-            lock (Locker)
+            lock (_locker)
             {
-                Connections.Add(connectionInfo);
+                _connections.Add(connectionInfo);
             }
         }
 
+        public static void AddTopic(string topic)
+        {
+            if (!Topics.Contains(topic))
+            {
+                Topics.Add(topic);
+            }
+        }
+
+        public static void RemoveConnection(string address, string topic)
+        {
+            lock (_locker)
+            {
+                _connections.RemoveAll(x => x.Address == address && x.Topic == topic);
+            }
+        }
         public static void Remove(string address)
         {
-            lock (Locker)
+            lock (_locker)
             {
-                Connections.RemoveAll(x => x.Address == address);
+                _connections.RemoveAll(x => x.Address == address);
             }
         }
-
         public static List<ConnectionInfo> GetConnectionInfos(string topic)
         {
             List<ConnectionInfo> selectedConnectionInfos;
-            lock (Locker)
+            lock (_locker)
             {
-                selectedConnectionInfos = Connections.Where(x => x.Topic == topic).ToList();
+                selectedConnectionInfos = _connections.Where(x => x.Topic == topic).ToList();
             }
 
             return selectedConnectionInfos;
