@@ -1,48 +1,62 @@
-import net from "net";
+import net from "net"; // Importăm modulul "net" pentru a lucra cu socket-uri TCP.
 import readline from "readline";
 
-const brokerHost = '127.0.0.1'; // Adresa IP a brokerului
-const brokerPort = 9000; // Portul la care se conectează clientul
+const brokerHost = '192.168.1.104';
+const brokerPort = 5005;
 
-const client = new net.Socket(); // Creează un socket client
+const client = new net.Socket(); // Creăm un obiect de tip socket pentru a comunica cu broker-ul.
 
 const rl = readline.createInterface({
-    input: process.stdin, // Inputul pentru citirea de la tastatură
-    output: process.stdout // Outputul pentru afișarea la consolă
+    input: process.stdin,
+    output: process.stdout
 });
 
-// Se conectează la broker
+// Conectarea la broker.
 client.connect(brokerPort, brokerHost, () => {
-    console.log('Connected to Broker');
-    getUserInput(); // Apelează funcția pentru a obține inputul de la utilizator
+    console.log('Conectat la Broker');
+    getUserInput();
 });
 
-// Funcție pentru a obține inputul utilizatorului pentru topic și mesaj
+// Gestionarea erorilor de conexiune.
+client.on('error', (error) => {
+    console.error('Eroare de conexiune:', error);
+    rl.close();
+});
+
+// Funcția pentru a obține inputul utilizatorului pentru topic și mesaj.
 function getUserInput() {
-    rl.question('Enter the topic (or type "exit" to quit): ', (topic) => {
+    rl.question('Introduceți topicul (sau tastați "exit" pentru a ieși): ', (topic) => {
         if (topic.toLowerCase() === 'exit') {
-            client.end(); // Închide socketul client
-            rl.close(); // Închide interfața de citire
+            // Închidem conexiunea și terminăm programul dacă utilizatorul tasteaza "exit".
+            client.end();
+            rl.close();
         } else {
-            rl.question('Enter the message: ', (message) => {
+            rl.question('Introduceți mesajul: ', (message) => {
+                // Validăm inputul.
+                if (topic.trim() === '' || message.trim() === '') {
+                    console.error('Topicul și mesajul nu pot fi goale.');
+                    getUserInput();
+                    return;
+                }
+
                 const xmlData = `<Content><Topic>${topic}</Topic><Message>${message}</Message></Content>`;
 
-                // Trimite datele XML către broker
+                // Trimitem datele XML către broker.
                 client.write(xmlData);
 
-                // Obține următorul input
+                // Obținem următorul input.
                 getUserInput();
             });
         }
     });
 }
 
-// Gestionează datele primite de la broker
+// Gestionarea datelor primite de la broker.
 client.on('data', (data) => {
-    console.log('Received response from Broker:', data.toString());
+    console.log('Răspuns primit de la Broker:', data.toString());
 });
 
-// Gestionează deconectarea
+// Gestionarea deconectarii de la broker.
 client.on('close', () => {
-    console.log('Connection to Broker closed');
+    console.log('Conexiunea cu Broker-ul s-a închis');
 });
